@@ -8,7 +8,7 @@ A fan-made companion site for the game **Ball x Pit** (© Kenomi LLC / Kenny Sun
 an evolution-recipes browser, a character-synergy checker, a character-quirk
 reference, and a fusion composer. Static Astro 5 site with one vanilla-TS
 interactive island, deployed to GitHub Pages at
-https://tomaskir.github.io/ball-x-pit-companion/.
+https://h0lydiana.github.io/ball-x-pit-companion/.
 
 Public overview: `README.md`. Domain vocabulary: `GLOSSARY.md`.
 
