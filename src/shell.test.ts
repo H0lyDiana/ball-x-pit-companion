@@ -11,6 +11,7 @@ import { createShell, type ShellPorts, type Shell } from './shell';
 import type { Action } from './view-state';
 import { decodeShared, type SharedSnapshot } from './plan-codec';
 import { shellDoc } from './test-support/styles';
+import { applyStaticI18n } from './i18n';
 
 const emptyShared: SharedSnapshot = { plan: { upgradesOn: true, balls: [], passives: [], fused: [] }, chars: [], editions: ['base-game'] };
 
@@ -42,6 +43,9 @@ let shell: Shell | null = null;
 
 beforeEach(() => {
   document.body.innerHTML = shellDoc().body.innerHTML;
+  // the shipped shell is Chinese; the English dictionary copy is what these
+  // assertions pin, so apply it the way the island does on startup
+  applyStaticI18n(document);
 });
 
 afterEach(() => {

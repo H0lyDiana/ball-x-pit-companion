@@ -7,6 +7,27 @@ Kenny Sun and Friends (Devolver Digital, October 2025). It maps every ball
 evolution recipe from the Fusion Reactor as a searchable graph, with per-character
 synergy verdicts, as a static site that works offline.
 
+## 简体中文
+
+本仓库的简体中文直接取自游戏内置官方中文（《球比伦战记》v1.308，
+`D://Steam//steamapps//common//BALLxPIT` 的 I2 Localization 字符串表）：115 颗弹珠、
+116 件被动物品、31 名角色、114 段三阶效果文本与界面术语均为官方译名。站点默认
+中文，右上角的 **EN / 中** 按钮可切换英文（偏好存入 localStorage 后整页重载）。
+
+官方术语：弹珠（ball）、迷你弹珠（baby ball）、被动物品（passive）、融合核心
+（Fusion Reactor）、升天球比伦（Risen Ballbylon）。官方效果文本中的变量占位符
+用本站数值填充；官方文本与本站底稿措辞差异过大的少量条目按官方模板手工补全。
+来源、覆盖范围与维护方式见
+[`docs/localization/zh-CN.md`](docs/localization/zh-CN.md)；中文词表位于
+`src/i18n/zh/`，数据文件（`src/data/*.ts`）保持生成物的英文原文不动。
+
+```bash
+npm install
+npm run dev      # 开发
+npm test         # 测试
+npm run build    # 构建 dist/
+```
+
 ## What it does
 
 - **All 115 balls**: 25 base balls, Baby Ball, and 89 evolved balls (75

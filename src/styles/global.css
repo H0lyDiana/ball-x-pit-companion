@@ -53,7 +53,9 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 14px/1.45 Georgia, 'Times New Roman', serif;
+  /* 中文正文优先使用衬线中文字体，保留原站的“古籍”气质 */
+  font: 14px/1.6 Georgia, 'Times New Roman', 'Songti SC', 'Noto Serif CJK SC',
+    'Source Han Serif SC', 'Noto Serif SC', SimSun, serif;
   min-height: 100vh;
 }
 
@@ -87,6 +89,9 @@ header h1 {
 }
 
 header h1 span { color: var(--muted); font-style: italic; font-size: 14px; }
+
+/* 中文标题不用合成斜体（会显得歪斜），字距也收一点 */
+html[lang^='zh'] header h1 span { font-style: normal; letter-spacing: 0; }
 
 .tabs { display: flex; gap: 4px; }
 

@@ -21,6 +21,7 @@ import { isEdition } from './edition-gate';
 import { planLink } from './share';
 import { isClearExempt } from './clear-exempt';
 import { ESC_EXEMPT_SELECTOR, shouldClear, themeFromStorage } from './companion-core';
+import { t, toggleLang } from './i18n';
 
 /** The environment touchpoints the shell needs, injected so the adapter is
  *  callable outside a browser. The island's full IslandPorts extends this
@@ -86,6 +87,9 @@ export function createShell({ ports, dispatch, snapshot }: ShellOptions): Shell 
   }
 
   applyTheme(themeFromStorage(ports.storage.getItem('theme'), ports.prefersLight()));
+  const langToggle = document.getElementById('langToggle');
+  if (langToggle) listen(langToggle, 'click', () => toggleLang());
+
   listen(themeToggle, 'click', () => {
     const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
     ports.storage.setItem('theme', next);
@@ -159,7 +163,7 @@ export function createShell({ ports, dispatch, snapshot }: ShellOptions): Shell 
     const url = planLink(ports.location.origin(), ports.location.pathname(), snapshot());
     const flash = () => {
       if (destroyed) return; // a clipboard promise that settles after teardown
-      shareBtn.textContent = 'Copied!';
+      shareBtn.textContent = t('plan.copied');
       if (flashTimer !== null) clearTimeout(flashTimer);
       flashTimer = setTimeout(() => {
         shareBtn.textContent = idleShareLabel;
